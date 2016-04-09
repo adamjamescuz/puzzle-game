@@ -8,6 +8,9 @@ var Piece = function(id)
     this.enable = false;
     this.snapSpeed = 150;
     this.dropSpeed = 400;
+
+    // reference to a Slot this piece currently belongs to
+    this.currentSlot = null;
 };  
 
 
@@ -42,6 +45,8 @@ $.extend(Piece.prototype, {
     // mouse event handlers
     handleMouseDown:function(e)
     {
+        this.resetCurrentSlot();
+        
         this.isSelected = true;
         this.container.rotation = 0;
         this.container.alpha = 1;
@@ -70,7 +75,9 @@ $.extend(Piece.prototype, {
     // animate the piece falling to the floor
     drop: function(yPos)
     {
+        this.resetCurrentSlot();
         this.isPlaced = false;
+
         var targetY = _.random(yPos + (this.bounds.height * .5), yPos + (this.bounds.height*1.25));
         var targetRotation = this.container.rotation + _.random(-20, 20);
         var targetX = this.container.x + _.random(-20, 20);
@@ -88,12 +95,26 @@ $.extend(Piece.prototype, {
     snapToSlot: function(targetSlot)
     {
         var t = this;
+
+        this.resetCurrentSlot();
+
         var targetX = targetSlot.container.x + this.bounds.width * .5;
         var targetY = targetSlot.container.y + this.bounds.height * .5;
 
         createjs.Tween.get(this.container).to( {x:targetX, y:targetY}, this.snapSpeed, createjs.Ease.getPowOut(2)).call(function(){ t.checkPieceIsCorrect(targetSlot); } );
         this.isPlaced = true;
         targetSlot.unhighlight();
+        this.currentSlot = targetSlot;
+    },
+
+    // set the current slot this piece belongs to back to empty
+    resetCurrentSlot:function()
+    {
+        if (this.currentSlot !== null)
+        {
+            this.currentSlot.isEmpty = true;
+            this.currentSlot = null
+        }     
     },
 
     // called after the above snap tween ends - check it's in the right slot by compaing id with target slot id

@@ -4,6 +4,7 @@ var Slot = function(id)
     this.container = new createjs.Container();
     this.bounds = {};
     this.border;
+    this.isEmpty = true;
 };  
 
 

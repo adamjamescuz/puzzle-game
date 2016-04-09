@@ -125,14 +125,17 @@ $.extend(Puzzle.prototype, {
                 {
                     var slot = this.slots[i];
 
+                    if (slot.isEmpty === false) continue;
+
                     if (slot.bounds.contains(this.selectedPiece.container.x, this.selectedPiece.container.y))
-                    {
+                    {   
                         this.targetSlot = slot;
-                        slot.highlight();
+                        slot.highlight();                                              
                     }
                     else
                     {
-                        slot.unhighlight();                   
+                        slot.unhighlight();  
+                        slot.isEmpty = true;                 
                     }
                 }
             }   
@@ -168,7 +171,7 @@ $.extend(Puzzle.prototype, {
         if (this.targetSlot !== null)
         {
             this.selectedPiece.snapToSlot(this.targetSlot);
-            this.targetSlot.hasPiece = true;
+            this.targetSlot.isEmpty = false;
         }
         else
         {
