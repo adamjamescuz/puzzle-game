@@ -1,0 +1,86 @@
+/* Please note the styling rules below the range input on the home page are modified from:
+https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+*/
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent; /* Hides the slider so custom styles can be added */
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 16px;
+  background: #ccc;
+  cursor: pointer;
+  margin-top: -12px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  height: 30px;
+  width: 16px;
+  background: #ccc;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  height: 30px;
+  width: 16px;
+  background: #ccc;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: #333;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: #333;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #333;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #333;
+}
+input[type=range]::-ms-fill-upper {
+  background: #333;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #333;
+}

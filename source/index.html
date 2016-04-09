@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Puzzle Game App</title>
+
+    <!--SCSS compiled stylsheet -->
+    <link href="assets/site.css" rel="stylesheet" type="text/css" />
+
+    <!--Bower components injection  -->
+    <!--bower:js-->
+    <!--endbower-->
+</head>
+<body>
+    <main role="main">
+        <!-- Home view -->
+        <div id="home-view" class="page">
+            <div id="home-content">
+                <p class='body-copy'>
+                    Adjust the sliders to set number of pieces
+                </p>
+                <div class='pieces-container'> 
+                    <span id='range-caption-x' class='range-caption'>X</span>
+                    <input type="range" id="pieces-slider-x" class="range" value="3" min="2" max="6", step="1">
+                    <span id='piece-label-x' class='piece-label'>3</span>
+                </div>
+                <div class='pieces-container'>
+                    <span id='range-caption-y' class='range-caption'>Y</span>
+                    <input type="range" id="pieces-slider-y" class="range" value="3" min="2" max="6", step="1">
+                    <span id='piece-label-y' class='piece-label'>3</span>
+                </div>
+                <div id="begin-cta">
+                    <p>BEGIN PUZZLE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Puzzle view -->
+        <div id="puzzle-view" class="page">
+            <div id='loading' class="overlay">
+                <p>loading...</p>
+            </div>
+            <div id="puzzle-board">
+                <div id='ui'>
+                    <div id='bg'></div>
+                    <p id='message'>OH NO!</p>
+                    <p id='replay-cta'>REPLAY</p>
+                </div>
+                <canvas id='puzzle-board-canvas' width="450" height="680" style="background-color:#222222">
+            </div>
+        </div>
+    </main>
+
+    <!-- External Libraries and Dependencies  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+    <!-- Concatenated Applicaton Scripts  -->
+    <script src="js/lib.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+#puzzle-view {
+	background-color: #333;
+
+	#loading {
+		text-align: center;
+	}
+
+	#puzzle-board {
+		z-index: $bottom;
+		position: absolute;
+		width:100%;
+		height: 100%;
+	    text-align: center;
+
+	    #ui {
+	    	display: none;
+	    	background: none;
+	    	width:100%;
+			height: 100%;
+	    	position: absolute;
+	    	z-index: $top;
+	    	text-align: center;
+
+	    	#bg {
+	    		position: absolute;
+	    		z-index: $bottom;
+	    		background-color: black;
+	    		width:100%;
+				height: 100%;
+				opacity: 0;
+   				filter: alpha(opacity=0);
+	    	}
+
+	    	p {
+	    		@include vertical-align(relative);
+	    		font-family: 'DIN-Regular';
+				font-size: 32px;
+				padding:0px;
+				color: #ccc;
+				opacity: 0;
+   				filter: alpha(opacity=0);
+   				text-transform: uppercase;
+	    	}
+
+	    	#replay-cta {
+	    		opacity: 1;
+   				filter: alpha(opacity=1);
+	    		display:none;
+	    		cursor: pointer;
+	    		font-size: 20px;
+	    		&:hover{
+	    			color:#eee;
+	    		}
+	    	}
+	    }
+
+	    canvas	{ 
+			@include vertical-align(relative);
+
+			max-width: 320px;
+			width:100%;
+
+			@media (min-width: $screen-sm) {
+				max-width:450px;
+			}
+		}
+	}
+}
+
+

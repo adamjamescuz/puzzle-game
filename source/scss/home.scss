@@ -1,0 +1,63 @@
+
+#home-view {
+	background-color: #111;
+	text-align: center;
+
+	#home-content {
+		@include vertical-align(relative);
+
+		p {
+			font-family: 'DIN-Regular';
+			padding:0px;
+			color: #aaa;
+			font-size: 16;
+			text-transform: uppercase;
+			margin-top: 200
+		}
+
+		p.body-copy {
+			margin-bottom: 5px;
+			padding:30px;
+		}
+
+		.pieces-container {
+			margin-bottom: 30px;
+		}
+
+		span {
+			display: inline-block;
+			vertical-align: super;
+			margin-right:10px;
+			color: #aaa;
+		}
+
+		span.piece-label {
+			margin-left:10px;
+			margin-right:0px;
+		}
+
+		.range {
+			background:none;
+			display: inline-block;
+			margin:0 auto;
+			width:100px;
+			height: 20px;
+		}
+
+		#begin-cta {
+			margin-top:20px;
+			cursor: pointer;
+			text-align: center;
+			color: #ccc;
+
+			p {
+				font-size: 32px;
+				&:hover {
+					color: #eee;
+				}
+			}			
+		}
+	}	
+}
+
+
