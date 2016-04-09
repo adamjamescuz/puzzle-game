@@ -1,6 +1,6 @@
 Name: Adam Cousins
+
 Email: cousins.aj@gmail.com
-Phone: 07939342334
 
 TO RUN:
 
