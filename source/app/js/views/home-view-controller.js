@@ -1,4 +1,4 @@
-
+// Extends PageViewController base
 var HomeViewController = function(config)
 {
     // call base class constructor

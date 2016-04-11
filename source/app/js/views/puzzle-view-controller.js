@@ -1,4 +1,4 @@
-
+// Extends PageViewController base
 var PuzzleViewController = function(config)
 {
     // call base class constructor
@@ -16,9 +16,7 @@ $.extend(PuzzleViewController.prototype, {
 	// overridden methods
     setup: function() 
     {	
-        console.log('puzzle setup');
     	var t = this;
-    	console.log("PuzzleViewController: setup");
 
         this.show();
 

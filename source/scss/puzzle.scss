@@ -57,13 +57,8 @@
 
 	    canvas	{ 
 			@include vertical-align(relative);
-
-			max-width: 320px;
-			width:100%;
-
-			@media (min-width: $screen-sm) {
-				max-width:450px;
-			}
+			// margin: 0 auto;
+			height: 75%;
 		}
 	}
 }
